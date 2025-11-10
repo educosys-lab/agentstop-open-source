@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-REPO_URL="https://github.com/educosys-lab/https://github.com/educosys-lab/agentstop-open-source.git"
+REPO_URL="https://github.com/educosys-lab/agentstop-open-source.git"
 PROJECT_DIR="agentstop-open-source"
 
 echo "🚀 Starting Agentstop setup..."
