@@ -7,10 +7,6 @@ class Env(BaseSettings):
     ENV: str = ""
     BASE_URL: str = ""
 
-    AWS_REGION: str = ""
-    AWS_ACCESS_KEY_ID: str = ""
-    AWS_SECRET_ACCESS_KEY: str = ""
-
     FIRECRAWL_API_KEY: str = ""
 
     MONGODB_URI: str = ""
