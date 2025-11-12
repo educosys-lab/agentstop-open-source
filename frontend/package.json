@@ -1,7 +1,10 @@
 {
 	"name": "agentstop-frontend",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
+	"license": "MIT",
+	"author": "Educosys",
+	"description": "Agentstop - The one-stop solution for building, managing, and deploying powerful AI agents and missions. Automate anything, faster.",
 	"scripts": {
 		"local": "cross-env APP_ENV=local next dev -p 5100",
 		"build": "cross-env APP_ENV=local next build",
