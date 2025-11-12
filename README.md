@@ -98,7 +98,7 @@ Open Git Bash and run the installation command above.
 
 #### Running the Project
 
-After installation, you can use the following scripts:
+After installation, go inside the project folder then you can use the following scripts:
 
 **Start development servers:**
 
