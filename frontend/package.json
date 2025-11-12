@@ -6,9 +6,12 @@
 	"author": "Educosys",
 	"description": "Agentstop - The one-stop solution for building, managing, and deploying powerful AI agents and missions. Automate anything, faster.",
 	"scripts": {
-		"local": "cross-env APP_ENV=local next dev -p 5100",
-		"build": "cross-env APP_ENV=local next build",
-		"start": "cross-env APP_ENV=local next start -p 5100",
+		"local": "env-cmd -f ../.env next dev -p 5100",
+		"docker": "cross-env APP_ENV=local next dev -p 5100",
+		"build:local": "env-cmd -f ../.env next build",
+		"build:docker": "cross-env APP_ENV=local next build",
+		"start:local": "env-cmd -f ../.env next start -p 5100",
+		"start:docker": "cross-env APP_ENV=local next start -p 5100",
 		"lint": "next lint"
 	},
 	"dependencies": {
@@ -53,6 +56,7 @@
 		"embla-carousel-auto-scroll": "^8.6.0",
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-react": "^8.6.0",
+		"env-cmd": "^11.0.0",
 		"framer-motion": "^12.7.4",
 		"gapi": "^0.0.3",
 		"googleapis": "^150.0.1",

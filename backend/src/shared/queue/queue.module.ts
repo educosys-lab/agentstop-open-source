@@ -15,8 +15,8 @@ import { QueueService } from './queue.service';
 				connection: {
 					host: configService.get<string>('REDIS_CACHE_HOST'),
 					port: configService.get<number>('REDIS_CACHE_PORT'),
-					username: configService.get<string>('REDIS_USERNAME'),
-					password: configService.get<string>('REDIS_PASSWORD'),
+					username: configService.get<string>('REDIS_CACHE_USERNAME'),
+					password: configService.get<string>('REDIS_CACHE_PASSWORD'),
 				},
 			}),
 		}),

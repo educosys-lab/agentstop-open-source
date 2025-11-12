@@ -14,12 +14,18 @@ def main():
 
     env = sys.argv[1]
 
-    env_path = Path("/app/.env")
+    # Determine .env file path based on environment
+    if env == "local":
+        # For local, use .env file 2 directories up (in project root)
+        script_dir = Path(__file__).parent.absolute()
+        env_path = script_dir / "../../.env"
+        env_path = env_path.resolve()
+    else:
+        # For docker/dev/prod, use /app/.env
+        env_path = Path("/app/.env")
+
     if not env_path.exists():
         print(f"Env file not found at {env_path}")
-
-    if not os.path.exists(env_path):
-        print(f"Valid env file not found!")
         return
 
     print(f"Using environment: {env}")

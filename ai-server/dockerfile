@@ -26,4 +26,4 @@ ENV ENV=local
 # Expose port
 EXPOSE 8000
 # Run app
-CMD ["make", "start-local"]
+CMD ["poetry", "run", "python", "scripts/start.py", "docker"]

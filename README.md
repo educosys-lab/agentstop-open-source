@@ -1,7 +1,7 @@
 ## ⚙️ Agentstop — Workflow Automation Platform
 
 <p align="center">
-  <a href="https://github.com/educosys-lab/agentstop-open-source/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License"></a>
+  <a href="https://github.com/educosys-lab/agentstop/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge" alt="MIT License"></a>
   <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"></a>
   <a href="https://nestjs.com"><img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS"></a>
   <a href="https://www.python.org"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
@@ -55,7 +55,7 @@ This method automatically deploys the **Frontend**, **Backend**, and **AI Server
 #### Installation Command
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/educosys-lab/agentstop-open-source/main/install-docker.sh | bash
+curl -fsSL https://raw.githubusercontent.com/educosys-lab/agentstop/main/install-docker.sh | bash
 ```
 
 #### Notes for Windows Users
@@ -79,7 +79,7 @@ This method installs and runs all three services directly on your local machine.
 #### Installation Command
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/educosys-lab/agentstop-open-source/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/educosys-lab/agentstop/main/install.sh | bash
 ```
 
 The script will:
@@ -154,23 +154,11 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 ### 🔐 Environment Setup
 
-#### 🐳 Docker Setup (Method 1)
-
 Requires one `.env` file at the root of the project.
 
 A sample file exists: `example-env`
 
 Rename it to `.env` and fill in your own values.
-
-#### 💻 Direct Local Setup (Method 2)
-
-Requires three `.env` files inside:
-
--   `/frontend/example-env`
--   `/backend/example-env`
--   `/ai-server/example-env`
-
-Rename each to `.env` and use the same values as the Docker setup.
 
 <br/>
 
@@ -262,7 +250,7 @@ You can also create your own fork for customization.
 
 ### 🌍 Community & Support
 
--   **💾 GitHub Repo:** [Agentstop Open Source](https://github.com/educosys-lab/agentstop-open-source)
+-   **💾 GitHub Repo:** [Agentstop Open Source](https://github.com/educosys-lab/agentstop)
 -   **📧 Support:** support@educosys.com
 
 <br/>

@@ -9,7 +9,7 @@ COPY . .
 # Install dependencies
 RUN pnpm i
 # Build the project
-RUN pnpm build
+RUN pnpm build:docker
 # Create the production image
 FROM node:20.17.0-bullseye AS builder
 # Install pnpm globally
@@ -40,4 +40,4 @@ COPY --from=base /src/pnpm-lock.yaml ./pnpm-lock.yaml
 # Expose the port
 EXPOSE 4100
 # Start the server
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start:docker"]

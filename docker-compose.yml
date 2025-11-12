@@ -14,7 +14,7 @@ services:
             - .env
         depends_on:
             - backend
-        command: pnpm start
+        command: pnpm start:docker
 
     # ======================
     # 🧱 BACKEND (NestJS)
@@ -56,7 +56,7 @@ services:
             - redis
         volumes:
             - ./.env:/app/.env
-        command: make start-local
+        command: poetry run python scripts/start.py docker
 
     # ======================
     # 🍃 MongoDB

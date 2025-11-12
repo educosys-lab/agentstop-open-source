@@ -2,7 +2,7 @@
 echo "🚀 Starting backend and waiting for ngrok tunnel..."
 
 # Start NestJS backend in background
-pnpm start &
+pnpm start:docker &
 
 # Wait for ngrok to be ready
 sleep 5
