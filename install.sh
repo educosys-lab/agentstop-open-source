@@ -57,17 +57,12 @@ poetry install
 cd ..
 
 # =======================================
-# 4️⃣ Ensure .env files exist
+# 4️⃣ Check if .env file exists
 # =======================================
 if [ ! -f ".env" ]; then
-    if [ -f ".env.example" ]; then
-        cp .env.example .env
-        echo "📝 Created .env from template."
-    else
-        echo "⚠️ No .env or .env.example found. Please create one manually."
-        echo "❌ Exiting setup — environment file is required."
-        exit 1
-    fi
+    echo "❌ .env file not found at project root: $PWD/.env"
+    echo "   Please create a .env file before proceeding."
+    exit 1
 fi
 
 # =======================================

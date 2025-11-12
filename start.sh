@@ -19,6 +19,13 @@ echo "🚀 Starting built projects in separate terminals..."
 # Get the script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Check if .env file exists at root
+if [ ! -f "$SCRIPT_DIR/.env" ]; then
+    echo "❌ .env file not found at project root: $SCRIPT_DIR/.env"
+    echo "   Please create a .env file before starting."
+    exit 1
+fi
+
 # Detect OS for terminal opening
 if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" || "$OSTYPE" == "cygwin" ]]; then
     # Windows (Git Bash)

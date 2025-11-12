@@ -19,6 +19,13 @@ echo "🔨 Building all projects..."
 # Get the script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Check if .env file exists at root
+if [ ! -f "$SCRIPT_DIR/.env" ]; then
+    echo "❌ .env file not found at project root: $SCRIPT_DIR/.env"
+    echo "   Please create a .env file before building."
+    exit 1
+fi
+
 # Build frontend
 echo ""
 echo "🏗️  Building frontend..."

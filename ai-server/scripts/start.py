@@ -20,6 +20,7 @@ def main():
         script_dir = Path(__file__).parent.absolute()
         env_path = script_dir / "../../.env"
         env_path = env_path.resolve()
+
     else:
         # For docker/dev/prod, use /app/.env
         env_path = Path("/app/.env")

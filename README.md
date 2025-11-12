@@ -96,6 +96,36 @@ Download: https://git-scm.com/downloads
 
 Open Git Bash and run the installation command above.
 
+#### Running the Project
+
+After installation, you can use the following scripts:
+
+**Start development servers:**
+
+```bash
+bash local.sh
+```
+
+This will start all three services (Frontend, Backend, and AI Server) in separate terminal windows.
+
+**Build the project:**
+
+```bash
+bash build.sh
+```
+
+This will build both Frontend and Backend projects for production.
+
+**Start the built project:**
+
+```bash
+bash start.sh
+```
+
+This will start the built Frontend, Backend, and AI Server in separate terminal windows.
+
+**Note:** All scripts automatically detect your package manager (pnpm, yarn, or npm) and require a `.env` file at the project root.
+
 <br/>
 
 ### 📦 Dependencies
