@@ -61,32 +61,8 @@ cd ..
 # =======================================
 if [ ! -f ".env" ]; then
     echo "❌ .env file not found at project root: $PWD/.env"
-    echo "   Please create a .env file before proceeding."
+    echo "   Please go inside the project directory and create a .env file before proceeding."
+    echo "   After creating the .env file, execute "bash local.sh" to start the projects in dev environment."
+    echo "   Or you can also execute "bash build.sh" to build the projects and then execute "bash start.sh" to start the projects."
     exit 1
 fi
-
-# =======================================
-# 5️⃣ Start all services concurrently
-# =======================================
-echo "🚀 Starting all services..."
-
-# Run frontend, backend, and AI server together
-# Each runs in background with log prefix
-(cd backend && $PKG_MGR run start:dev > ../backend.log 2>&1 &)
-echo "🟢 Backend started on http://localhost:4100"
-
-(cd frontend && $PKG_MGR run dev > ../frontend.log 2>&1 &)
-echo "🟢 Frontend started on http://localhost:5100"
-
-(cd ai-server && poetry run python scripts/start.py local > ../ai-server.log 2>&1 &)
-echo "🟢 AI Server started on http://localhost:8000"
-
-echo ""
-echo "🎉 All services are starting in the background!"
-echo ""
-echo "Frontend → http://localhost:5100"
-echo "Backend  → http://localhost:4100"
-echo "AI Server → http://localhost:8000"
-echo ""
-echo "👉 To stop all services:"
-echo "   pkill -f 'node' || pkill -f 'python'"
