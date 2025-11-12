@@ -30,13 +30,13 @@ fi
 if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" || "$OSTYPE" == "cygwin" ]]; then
     # Windows (Git Bash)
     echo "🟢 Starting frontend..."
-    cmd.exe //c start "Frontend" bash -c "cd \"$SCRIPT_DIR/frontend\" && $PKG_MGR start:local; exec bash"
+    cmd.exe //c start bash -c "cd \"$SCRIPT_DIR/frontend\" && $PKG_MGR start:local; exec bash"
 
     echo "🟢 Starting backend..."
-    cmd.exe //c start "Backend" bash -c "cd \"$SCRIPT_DIR/backend\" && $PKG_MGR start:local; exec bash"
+    cmd.exe //c start bash -c "cd \"$SCRIPT_DIR/backend\" && $PKG_MGR start:local; exec bash"
 
     echo "🟢 Starting AI server..."
-    cmd.exe //c start "AI Server" bash -c "cd \"$SCRIPT_DIR/ai-server\" && poetry run python scripts/start.py local; exec bash"
+    cmd.exe //c start bash -c "cd \"$SCRIPT_DIR/ai-server\" && poetry run python scripts/start.py local; exec bash"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
     echo "🟢 Starting frontend..."
