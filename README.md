@@ -213,6 +213,10 @@ Rename it to `.env` and fill in your own values.
 🧠 **Note:**
 We do not collect any user data. All keys are user-managed — bring your own credentials.
 
+### Minimal Setup
+
+For minimal setup you just need MONGODB\_\* credentials and REDIS\_\* credentials. Rest of the environment variables are needed based on the mission requirement.
+
 <br/>
 
 ### 🧑‍💻 Cross-Platform Notes
