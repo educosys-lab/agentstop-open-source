@@ -12,7 +12,6 @@ export const agentExecute = async ({
 	data,
 	config,
 }: GeneralNodePropsType<AgentDataType, AgentConfigType>): Promise<DefaultReturnType<GeneralNodeReturnType>> => {
-	console.log('agentExecute started', { format, data });
 	try {
 		const validate = await agentValidate({
 			format,

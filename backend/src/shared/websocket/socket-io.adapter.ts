@@ -15,7 +15,7 @@ export class SocketIoAdapter extends IoAdapter {
 	override createIOServer(port: number, options?: ServerOptions): Server {
 		const finalOptions = {
 			...(options ?? {}),
-			cors: { origin: '*', credentials: true },
+			cors: { origin: [process.env.FRONTEND_URL], credentials: true },
 		};
 
 		return super.createIOServer(port, finalOptions);
