@@ -70,9 +70,9 @@ export class SocketGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 	async handleInteract(socket: Socket, props: HandleInteractType): Promise<void | boolean> {
 		const response = await this.interactSyncService.handleInteract({ socket, props });
 		if (isError(response)) {
-			const client = this.webSocketService.getClient({ socketId: socket.id });
+			const client = await this.webSocketService.getClient({ socketId: socket.id });
 
-			log('userId' in client ? client.userId : 'system', 'error', {
+			log(isError(client) ? 'system' : client.userId, 'error', {
 				message: response.error,
 				data: response.errorData,
 				trace: [...response.trace, 'SocketGateway - handleInteract - this.interactSyncService.handleInteract'],

@@ -68,20 +68,25 @@ async def run_agent(args: AgentArgs) -> DefaultReturnType[dict[str, Any] | Any]:
             structured_format = generate_model(args.workflow_id, args.schema)
 
         # Setup Redis checkpoint
-        if args.memory_id:
-            async with AsyncRedisSaver.from_conn_string(env.REDIS_URI) as checkpointer:
-                config: RunnableConfig = {"configurable": {"thread_id": args.memory_id}}
-                agent = create_react_agent(
-                    model=model, tools=tools, checkpointer=checkpointer, response_format=structured_format
-                )
+        # if args.memory_id:
+        #     async with AsyncRedisSaver.from_conn_string(env.REDIS_URI) as checkpointer:
+        #         config: RunnableConfig = {"configurable": {"thread_id": args.memory_id}}
+        #         agent = create_react_agent(
+        #             model=model, tools=tools, checkpointer=checkpointer, response_format=structured_format
+        #         )
 
-                response = await agent.ainvoke({"messages": args.messages}, config)
-                return DefaultReturnType(data=response)
-        else:
-            agent = create_react_agent(model=model, tools=tools, response_format=structured_format)
+        #         response = await agent.ainvoke({"messages": args.messages}, config)
+        #         return DefaultReturnType(data=response)
+        # else:
+        #     agent = create_react_agent(model=model, tools=tools, response_format=structured_format)
 
-            response = await agent.ainvoke({"messages": args.messages})
-            return DefaultReturnType(data=response)
+        #     response = await agent.ainvoke({"messages": args.messages})
+        #     return DefaultReturnType(data=response)
+
+        agent = create_react_agent(model=model, tools=tools, response_format=structured_format)
+
+        response = await agent.ainvoke({"messages": args.messages})
+        return DefaultReturnType(data=response)
     except Exception as error:
         return DefaultReturnType(
             error=ErrorResponseType(

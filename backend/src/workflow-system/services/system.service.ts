@@ -152,7 +152,7 @@ export class WorkflowSystemService {
 			});
 		}
 
-		const sendDataResponse = this.webSocketService.sendDataToClient({
+		const sendDataResponse = await this.webSocketService.sendDataToClient({
 			userId,
 			event: 'updateInteractStatus',
 			data: { status: 'success', content: { status: 'live', workflowId: workflow.id } },
@@ -557,7 +557,7 @@ export class WorkflowSystemService {
 			};
 		}
 
-		const sendDataResponse = this.webSocketService.sendDataToClient({
+		const sendDataResponse = await this.webSocketService.sendDataToClient({
 			userId,
 			event: 'updateInteractStatus',
 			data: { status: 'success', content: { status: 'inactive', workflowId } },

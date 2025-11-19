@@ -75,8 +75,6 @@ export const agentExecute = async ({
 			memory_id: llmHasMemory === 'true' ? memoryId : '',
 		};
 
-		console.log('Sending request to backend', { url: `${process.env.PYTHON_BACKEND_URL}/execute` });
-
 		const timeout = 1200000;
 		try {
 			const response = await axios.post(`${process.env.PYTHON_BACKEND_URL}/execute`, requestData, {

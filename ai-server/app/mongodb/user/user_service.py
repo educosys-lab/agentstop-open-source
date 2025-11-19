@@ -15,6 +15,7 @@ collection = db["users"]
 class UserService(BaseModel):
     # Get user
     async def get_user(self, args: GetUserArgs) -> DefaultReturnType[UserType]:
+        print(f"Getting user with args: {args}")
         try:
             if args.id:
                 doc = await collection.find_one({"id": args.id})
@@ -24,7 +25,7 @@ class UserService(BaseModel):
                 doc = await collection.find_one({"username": args.username})
             elif args.refresh_token:
                 doc = await collection.find_one({"refresh_token": args.refresh_token})
-
+            print(f"Doc: {doc}")
             if doc:
                 user_instance = UserType(**doc)
                 return DefaultReturnType(data=user_instance)

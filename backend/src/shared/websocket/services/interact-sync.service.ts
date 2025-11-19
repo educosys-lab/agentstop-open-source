@@ -36,7 +36,7 @@ export class InteractSyncService {
 	}): Promise<DefaultReturnType<true>> {
 		const socketId = socket.id;
 
-		const client = this.webSocketService.getClient({ socketId });
+		const client = await this.webSocketService.getClient({ socketId });
 		if (isError(client)) {
 			return {
 				userMessage: 'Client not found!',

@@ -35,7 +35,7 @@ export const ragQueryExecute = async ({
 		const response = await axios.post(`${process.env.PYTHON_BACKEND_URL}/rag/query`, {
 			question: formattedDefaultData,
 			mode: 'docs_only',
-			source_name: sourceName.map((name) => `${userId}::${name}`),
+			source_name: sourceName.map((name) => `${name}`),
 		});
 
 		return { status: 'success', format: 'string', content: { defaultData: response.data.answer } };

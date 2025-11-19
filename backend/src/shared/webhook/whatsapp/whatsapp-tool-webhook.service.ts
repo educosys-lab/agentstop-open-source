@@ -175,7 +175,7 @@ export class WhatsAppToolWebhookService {
 				};
 			}
 
-			this.sendStatusUpdate(
+			await this.sendStatusUpdate(
 				userId,
 				messageId,
 				status,
@@ -253,7 +253,7 @@ export class WhatsAppToolWebhookService {
 
 				if (!updatedDoc) return { status: 'success' };
 
-				this.sendStatusUpdate(
+				await this.sendStatusUpdate(
 					campaignMessage.userId || 'unknown',
 					messageId,
 					readStatus,
@@ -334,7 +334,7 @@ export class WhatsAppToolWebhookService {
 
 				if (!updatedDoc) return { status: 'success' };
 
-				this.sendCampaignUpdate(
+				await this.sendCampaignUpdate(
 					updatedDoc.userId || 'unknown',
 					{
 						messageId,
@@ -359,14 +359,14 @@ export class WhatsAppToolWebhookService {
 		}
 	}
 
-	private sendCampaignUpdate(
+	private async sendCampaignUpdate(
 		userId: string,
 		message: { messageId: string; status: string; timestamp: number; messageContent: string },
 		receiverMobile: string,
 		campaignId: string,
 	) {
 		try {
-			this.webSocketService.sendDataToClient({
+			await this.webSocketService.sendDataToClient({
 				userId,
 				event: 'update-campaign-chat',
 				data: {
@@ -383,7 +383,7 @@ export class WhatsAppToolWebhookService {
 		}
 	}
 
-	private sendStatusUpdate(
+	private async sendStatusUpdate(
 		userId: string,
 		messageId: string,
 		status: string,
@@ -393,7 +393,7 @@ export class WhatsAppToolWebhookService {
 		receiverMobile: string,
 	) {
 		try {
-			this.webSocketService.sendDataToClient({
+			await this.webSocketService.sendDataToClient({
 				userId,
 				event: 'update-campaign-status',
 				data: {

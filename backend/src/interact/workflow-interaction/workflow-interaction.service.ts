@@ -81,7 +81,7 @@ export class WorkflowInteractionService {
 			};
 		}
 
-		const response = this.webSocketService.sendDataToClient({
+		const response = await this.webSocketService.sendDataToClient({
 			userId,
 			event: 'addUserInteracts',
 			data: {
@@ -133,7 +133,7 @@ export class WorkflowInteractionService {
 		}
 
 		if (userId) {
-			const response = this.webSocketService.sendDataToClient({
+			const response = await this.webSocketService.sendDataToClient({
 				userId,
 				event: 'deleteUserInteracts',
 				data: { status: 'success', content: workflowId },

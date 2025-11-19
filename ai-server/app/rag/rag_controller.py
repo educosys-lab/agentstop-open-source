@@ -80,22 +80,22 @@ async def ingest_document(
         if not request.source_name.strip():
             return throw_error(ThrowErrorArgs(error="Data cannot be empty!", errorType="BadRequestException"))
 
-        if request.user_email:
-            user_data = await UserService().get_user(GetUserArgs(email=request.user_email))
-            if is_error(user_data.error):
-                return throw_error(ThrowErrorArgs(error="User not found!", errorType=user_data.error.errorType))
+        # if request.user_email:
+        #     user_data = await UserService().get_user(GetUserArgs(email=request.user_email))
+        #     if is_error(user_data.error):
+        #         return throw_error(ThrowErrorArgs(error="User not found!", errorType=user_data.error.errorType))
 
-        assert user_data.data is not None
+        # assert user_data.data is not None
 
-        request.source_name = (
-            f"{user_data.data.id}::{request.source_name}" if request.user_email else request.source_name
-        )
+        request.source_name = f"{request.source_name}" if request.user_email else request.source_name
 
+        console_log(f"Request: {request}")
         # Process ingestion
         result = ingestion_service.ingest_document(request)
         if is_error(result.error):
             return throw_error(ThrowErrorArgs(error=result.error.error, errorType=result.error.errorType))
 
+        console_log(f"Result: {result}")
         assert result.data is not None
 
         console_log(f"Ingestion completed successfully: {result.data.chunks_created} chunks created")

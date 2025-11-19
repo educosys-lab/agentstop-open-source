@@ -168,7 +168,7 @@ export class InteractService {
 		}
 
 		if (showTempData) {
-			this.webSocketService.sendDataToClient({
+			await this.webSocketService.sendDataToClient({
 				userId,
 				event: 'showTempData',
 				data: {
@@ -221,7 +221,7 @@ export class InteractService {
 		}
 
 		if (isInternal) {
-			this.webSocketService.sendDataToClient({
+			await this.webSocketService.sendDataToClient({
 				userId,
 				event: 'updateInteractMessage',
 				data: {
@@ -296,7 +296,7 @@ export class InteractService {
 		const updatedMembers = interact.members;
 
 		for (const user of addedUsersData) {
-			const existingMember = updatedMembers.find((member) => member.userId === user.id);
+			const existingMember = updatedMembers.find((member) => member.userId === user.id) as any;
 			if (existingMember) continue;
 
 			updatedMembers.push({ userId: user.id, joinTime: Date.now(), isDeleted: false });
